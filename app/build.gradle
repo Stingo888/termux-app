@@ -43,6 +43,7 @@ android {
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
         versionCode 118
         versionName "0.118.0"
+        multiDexEnabled true
 
         if (appVersionName) versionName = appVersionName
         validateVersionName(versionName)
@@ -144,6 +145,7 @@ dependencies {
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.robolectric:robolectric:4.10"
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
+    compile "com.android.support:multidex:2.0.1"
 }
 
 task versionName {
