@@ -2,8 +2,6 @@ package com.termux.app;
 
 import android.app.Application;
 import android.content.Context;
-import androidx.multidex.MultiDex;
-import androidx.multidex.MultiDexApplication;
 
 import com.termux.BuildConfig;
 import com.termux.shared.errors.Error;
@@ -20,12 +18,6 @@ import com.termux.shared.termux.shell.TermuxShellManager;
 import com.termux.shared.termux.theme.TermuxThemeUtils;
 
 public class TermuxApplication extends Application {
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }    
 
     private static final String LOG_TAG = "TermuxApplication";
 
