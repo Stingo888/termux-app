@@ -19,6 +19,12 @@ import com.termux.shared.termux.theme.TermuxThemeUtils;
 
 public class TermuxApplication extends Application {
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }    
+
     private static final String LOG_TAG = "TermuxApplication";
 
     public void onCreate() {
