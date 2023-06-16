@@ -35,13 +35,7 @@ import java.util.LinkedList;
  * offering two different ways of accessing your stored data. This would be confusing for users."
  * - http://developer.android.com/guide/topics/providers/document-provider.html#43
  */
-public class TermuxDocumentsProvider extends DocumentsProvider {
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
+public class TermuxDocumentsProvider extends MultiDexApplication {
 
     private static final String ALL_MIME_TYPES = "*/*";
 
