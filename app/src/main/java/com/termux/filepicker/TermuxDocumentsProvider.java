@@ -1,5 +1,6 @@
 package com.termux.filepicker;
 
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -10,7 +11,6 @@ import android.provider.DocumentsContract.Document;
 import android.provider.DocumentsContract.Root;
 import android.provider.DocumentsProvider;
 import android.webkit.MimeTypeMap;
-import android.content.Context;
 
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
