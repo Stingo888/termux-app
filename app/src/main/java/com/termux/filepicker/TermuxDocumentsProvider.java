@@ -40,7 +40,7 @@ public class TermuxDocumentsProvider extends DocumentsProvider {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install((Contex) getActivity());
+        MultiDex.install((Context) getActivity());
     }
 
     private static final String ALL_MIME_TYPES = "*/*";
