@@ -2,6 +2,7 @@ package com.termux.app;
 
 import android.app.Application;
 import android.content.Context;
+import androidx.multidex.MultiDexApplication
 
 import com.termux.BuildConfig;
 import com.termux.shared.errors.Error;
