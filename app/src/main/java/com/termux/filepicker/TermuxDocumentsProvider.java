@@ -11,6 +11,9 @@ import android.provider.DocumentsContract.Root;
 import android.provider.DocumentsProvider;
 import android.webkit.MimeTypeMap;
 
+import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
+
 import com.termux.R;
 import com.termux.shared.termux.TermuxConstants;
 
@@ -32,6 +35,12 @@ import java.util.LinkedList;
  * - http://developer.android.com/guide/topics/providers/document-provider.html#43
  */
 public class TermuxDocumentsProvider extends DocumentsProvider {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     private static final String ALL_MIME_TYPES = "*/*";
 
