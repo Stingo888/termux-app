@@ -158,6 +158,7 @@
             </intent-filter>
         </activity-alias>
 
+        <!--
         <provider
             android:name=".filepicker.TermuxDocumentsProvider"
             android:authorities="${TERMUX_PACKAGE_NAME}.documents"
@@ -168,6 +169,7 @@
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
             </intent-filter>
         </provider>
+        -->
 
         <provider
             android:name=".app.TermuxOpenReceiver$ContentProvider"
