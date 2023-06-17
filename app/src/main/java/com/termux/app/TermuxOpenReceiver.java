@@ -2,6 +2,7 @@ package com.termux.app;
 
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -124,7 +125,7 @@ public class TermuxOpenReceiver extends BroadcastReceiver {
         }
     }
 
-    public static class ContentProvider extends android.content.ContentProvider {
+    public static class ContentProvider extends ContentProvider {
 
         private static final String LOG_TAG = "TermuxContentProvider";
 
