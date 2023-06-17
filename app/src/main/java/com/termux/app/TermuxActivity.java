@@ -633,12 +633,14 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         if (currentSession == null) return;
 
         boolean addAutoFillMenu = false;
+        /*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             AutofillManager autofillManager = getSystemService(AutofillManager.class);
             if (autofillManager != null && autofillManager.isEnabled()) {
                 addAutoFillMenu = true;
             }
         }
+        */
 
         menu.add(Menu.NONE, CONTEXT_MENU_SELECT_URL_ID, Menu.NONE, R.string.action_select_url);
         menu.add(Menu.NONE, CONTEXT_MENU_SHARE_TRANSCRIPT_ID, Menu.NONE, R.string.action_share_transcript);
@@ -676,9 +678,11 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
             case CONTEXT_MENU_SHARE_SELECTED_TEXT:
                 mTermuxTerminalViewClient.shareSelectedText();
                 return true;
+            /*
             case CONTEXT_MENU_AUTOFILL_ID:
                 requestAutoFill();
                 return true;
+            */
             case CONTEXT_MENU_RESET_TERMINAL_ID:
                 onResetTerminalSession(session);
                 return true;
@@ -760,6 +764,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         }
     }
 
+    /*
     private void requestAutoFill() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             AutofillManager autofillManager = getSystemService(AutofillManager.class);
@@ -768,6 +773,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
             }
         }
     }
+    */
 
 
 
