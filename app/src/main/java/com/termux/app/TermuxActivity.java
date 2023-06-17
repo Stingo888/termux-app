@@ -230,6 +230,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         mTermuxActivityRootView = findViewById(R.id.activity_termux_root_view);
         mTermuxActivityRootView.setActivity(this);
         mTermuxActivityBottomSpaceView = findViewById(R.id.activity_termux_bottom_space_view);
+        /*
         mTermuxActivityRootView.setOnApplyWindowInsetsListener(new TermuxActivityRootView.WindowInsetsListener());
 
         View content = findViewById(android.R.id.content);
@@ -237,6 +238,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
             mNavBarHeight = insets.getSystemWindowInsetBottom();
             return insets;
         });
+        */
 
         if (mProperties.isUsingFullScreen()) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
