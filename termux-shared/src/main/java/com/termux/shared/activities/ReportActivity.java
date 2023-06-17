@@ -203,11 +203,13 @@ public class ReportActivity extends AppCompatActivity {
         return true;
     }
 
+    /*
     @Override
     public void onBackPressed() {
         // Remove activity from recents menu on back button press
         finishAndRemoveTask();
     }
+    */
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
