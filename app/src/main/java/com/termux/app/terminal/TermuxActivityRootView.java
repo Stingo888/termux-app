@@ -272,6 +272,7 @@ public class TermuxActivityRootView extends LinearLayout implements ViewTreeObse
         }
     }
 
+    /*
     public static class WindowInsetsListener implements View.OnApplyWindowInsetsListener {
         @Override
         public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
@@ -280,5 +281,6 @@ public class TermuxActivityRootView extends LinearLayout implements ViewTreeObse
             return v.onApplyWindowInsets(insets);
         }
     }
+    */
 
 }
