@@ -2,7 +2,6 @@ package com.termux.app;
 
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
-import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -196,7 +195,7 @@ public class TermuxOpenReceiver extends BroadcastReceiver {
             File file = new File(uri.getPath());
             try {
                 String path = file.getCanonicalPath();
-                String callingPackageName = this.getCallingPackage();
+                String callingPackageName = getCallingPackage();
                 Logger.logDebug(LOG_TAG, "Open file request received from " + callingPackageName + " for \"" + path + "\" with mode \"" + mode + "\"");
                 String storagePath = Environment.getExternalStorageDirectory().getCanonicalPath();
                 // See https://support.google.com/faqs/answer/7496913:
