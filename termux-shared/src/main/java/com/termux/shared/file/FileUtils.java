@@ -40,12 +40,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import mirror.libcore.io.Libcore;
-
 public class FileUtils {
-
-    public static String readlink(String path) throws ErrnoException { return Libcore.os.readlink(path); }
-    public static void symlink(String oldPath, String newPath) throws ErrnoException { Libcore.os.symlink(oldPath, newPath); }
 
     /** Required file permissions for the executable file for app usage. Executable file must have read and execute permissions */
     public static final String APP_EXECUTABLE_FILE_PERMISSIONS = "r-x"; // Default: "r-x"
