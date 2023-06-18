@@ -836,7 +836,7 @@ public class FileUtils {
 
             // create a symlink at destFilePath to targetFilePath
             Logger.logVerbose(LOG_TAG, "Creating " + label + "symlink file at path \"" + destFilePath + "\" to \"" + targetFilePath + "\"");
-            Os.symlink(targetFilePath, destFilePath);
+            symlink(targetFilePath, destFilePath);
         } catch (Exception e) {
             return FileUtilsErrno.ERRNO_CREATING_SYMLINK_FILE_FAILED_WITH_EXCEPTION.getError(e, label + "symlink file", destFilePath, targetFilePath, e.getMessage());
         }
@@ -1156,7 +1156,7 @@ public class FileUtils {
                     } else {
                         // read the target for the source file and create a symlink at dest
                         // source file metadata will be lost
-                        error = createSymlinkFile(label + "dest", Os.readlink(srcFilePath), destFilePath);
+                        error = createSymlinkFile(label + "dest", readlink(srcFilePath), destFilePath);
                         if (error != null)
                             return error;
                     }
