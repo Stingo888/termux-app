@@ -15,7 +15,6 @@ android {
         implementation "io.noties.markwon:linkify:$markwonVersion"
         implementation "io.noties.markwon:recycler:$markwonVersion"
         implementation "org.lsposed.hiddenapibypass:hiddenapibypass:2.0"
-        implementation files("libs/android-libcore-4.3_r2.robolectric-0.jar")
 
         // Do not increment version higher than 1.0.0-alpha09 since it will break ViewUtils and needs to be looked into
         // noinspection GradleDependency
