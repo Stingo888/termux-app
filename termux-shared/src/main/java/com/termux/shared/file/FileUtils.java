@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import com.google.common.io.RecursiveDeleteOption;
 import com.termux.shared.file.filesystem.FileType;
 import com.termux.shared.file.filesystem.FileTypes;
-import com.termux.shared.file.Libcore;
 import com.termux.shared.data.DataUtils;
 import com.termux.shared.logger.Logger;
 import com.termux.shared.errors.Errno;
@@ -40,6 +39,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import libcore.io.Libcore
 
 public class FileUtils {
 
