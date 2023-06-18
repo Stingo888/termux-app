@@ -15,7 +15,6 @@ android {
         implementation "io.noties.markwon:linkify:$markwonVersion"
         implementation "io.noties.markwon:recycler:$markwonVersion"
         implementation "org.lsposed.hiddenapibypass:hiddenapibypass:2.0"
-        implementation group: 'org.robolectric', name: 'android-libcore', version: '4.3_r2.robolectric-0'
 
         // Do not increment version higher than 1.0.0-alpha09 since it will break ViewUtils and needs to be looked into
         // noinspection GradleDependency
@@ -71,6 +70,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
     implementation "androidx.multidex:multidex:2.0.1"
+    implementation "org.robolectric:android-libcore:4.3_r2.robolectric-0"
 }
 
 task sourceJar(type: Jar) {
