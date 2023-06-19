@@ -778,6 +778,7 @@ public class FileUtils {
      */
     public static Error createSymlinkFile(String label, final String targetFilePath, final String destFilePath,
                                           final boolean allowDangling, final boolean overwrite, final boolean overwriteOnlyIfDestIsASymlink) {
+        final Class<?> Libcore = Class.forName("libcore.io.Libcore");
         label = (label == null || label.isEmpty() ? "" : label + " ");
         if (targetFilePath == null || targetFilePath.isEmpty()) return FunctionErrno.ERRNO_NULL_OR_EMPTY_PARAMETER.getError(label + "target file path", "createSymlinkFile");
         if (destFilePath == null || destFilePath.isEmpty()) return FunctionErrno.ERRNO_NULL_OR_EMPTY_PARAMETER.getError(label + "destination file path", "createSymlinkFile");
