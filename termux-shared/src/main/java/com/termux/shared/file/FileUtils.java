@@ -30,6 +30,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.file.LinkOption;
 import java.nio.file.StandardCopyOption;
@@ -50,6 +52,39 @@ public class FileUtils {
 
     private static final String LOG_TAG = "FileUtils";
 
+    public static Object getLibcoreOs() {
+        final Class<?> Libcore = Class.forName("libcore.io.Libcore");
+        final Field fOs = Libcore.getDeclaredField("os");
+        fOs.setAccessible(true);
+        final Object os = fOs.get(null);
+        
+        return os;
+    }
+
+    public static String readlink(String path) {
+        final Object os = getLibcoreOs();
+        final Method method = os.getClass().getMethod("readlink", String.class);
+
+        try {
+            String srcPath = method.invoke(os, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return srcPath;
+    }
+
+    public static void symlink(String oldPath, String newPath) {
+        final Object os = getLibcoreOs();
+        final Method method = os.getClass().getMethod("symlink", String.class, String.class);
+
+        try {
+            method.invoke(os, oldPath, newPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * Get canonical path.
      *
@@ -778,7 +813,6 @@ public class FileUtils {
      */
     public static Error createSymlinkFile(String label, final String targetFilePath, final String destFilePath,
                                           final boolean allowDangling, final boolean overwrite, final boolean overwriteOnlyIfDestIsASymlink) {
-        final Class<?> Libcore = Class.forName("libcore.io.Libcore");
         label = (label == null || label.isEmpty() ? "" : label + " ");
         if (targetFilePath == null || targetFilePath.isEmpty()) return FunctionErrno.ERRNO_NULL_OR_EMPTY_PARAMETER.getError(label + "target file path", "createSymlinkFile");
         if (destFilePath == null || destFilePath.isEmpty()) return FunctionErrno.ERRNO_NULL_OR_EMPTY_PARAMETER.getError(label + "destination file path", "createSymlinkFile");
