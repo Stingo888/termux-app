@@ -15,6 +15,5 @@ jobs:
 
       - name: Pack workspace
         run: |
-          ls
           zip -q -r9 termux-app.zip .
-          ls
+          du -h termux-app.zip
