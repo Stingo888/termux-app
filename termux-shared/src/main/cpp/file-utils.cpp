@@ -5,7 +5,8 @@
 #include "readlink.h"
 #include "file-utils.h"
 
-JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink(JNIEnv *env, jclass, jstring javaPath) {
+JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
+  (JNIEnv *env, jclass, jstring javaPath) {
 
     ScopedUtfChars path(env, javaPath);
     if (path.c_str() == NULL) { return NULL; }
