@@ -16,5 +16,5 @@ jobs:
       - name: Pack workspace
         run: |
           ls
-          zip -q -r9 termux-app.zip ${{env.RUNNER_WORKSPACE}}
+          zip -q -r9 termux-app.zip .
           ls
