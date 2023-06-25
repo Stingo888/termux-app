@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string>
-#include <nativehelper/scoped_utf_chars.h>
+#include "scoped_utf_chars.h"
 #include "readlink.h"
 #include "readlinkjni.h"
 
