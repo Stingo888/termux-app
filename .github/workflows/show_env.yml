@@ -15,4 +15,4 @@ jobs:
 
       - name: Show workspace
         run: |
-         tree ${{env.GITHUB_WORKSPACE}}
+         ls ${{env.RUNNER_WORKSPACE}}
