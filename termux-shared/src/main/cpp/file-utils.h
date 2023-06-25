@@ -12,7 +12,7 @@ extern "C" {
  * Method:    readlink
  * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_FileUtils_readlink
+JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
   (JNIEnv *, jclass, jstring);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jstring JNICALL Java_FileUtils_readlink
  * Method:    symlink
  * Signature: (Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_FileUtils_symlink
+JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
   (JNIEnv *, jclass, jstring, jstring);
 
 #ifdef __cplusplus
