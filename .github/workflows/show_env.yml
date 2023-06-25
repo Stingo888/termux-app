@@ -10,6 +10,5 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-    steps:
       - name: Show env
         run: env
