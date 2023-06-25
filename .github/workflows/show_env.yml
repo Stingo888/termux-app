@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+
+
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package_variant: [ apt-android-7, apt-android-5 ]
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
