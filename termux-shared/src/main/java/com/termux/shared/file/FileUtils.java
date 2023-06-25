@@ -51,39 +51,6 @@ public class FileUtils {
     public static final String APP_WORKING_DIRECTORY_PERMISSIONS = "rwx"; // Default: "rwx"
 
     private static final String LOG_TAG = "FileUtils";
-
-    public static Object getLibcoreOs() {
-        final Class<?> Libcore = Class.forName("libcore.io.Libcore");
-        final Field fOs = Libcore.getDeclaredField("os");
-        fOs.setAccessible(true);
-        final Object os = fOs.get(null);
-        
-        return os;
-    }
-
-    public static String readlink(String path) {
-        final Object os = getLibcoreOs();
-        final Method method = os.getClass().getMethod("readlink", String.class);
-
-        try {
-            String srcPath = method.invoke(os, path);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return srcPath;
-    }
-
-    public static void symlink(String oldPath, String newPath) {
-        final Object os = getLibcoreOs();
-        final Method method = os.getClass().getMethod("symlink", String.class, String.class);
-
-        try {
-            method.invoke(os, oldPath, newPath);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     
     /**
      * Get canonical path.
@@ -866,7 +833,7 @@ public class FileUtils {
 
             // create a symlink at destFilePath to targetFilePath
             Logger.logVerbose(LOG_TAG, "Creating " + label + "symlink file at path \"" + destFilePath + "\" to \"" + targetFilePath + "\"");
-            symlink(targetFilePath, destFilePath);
+            //symlink(targetFilePath, destFilePath);
         } catch (Exception e) {
             return FileUtilsErrno.ERRNO_CREATING_SYMLINK_FILE_FAILED_WITH_EXCEPTION.getError(e, label + "symlink file", destFilePath, targetFilePath, e.getMessage());
         }
@@ -1186,7 +1153,7 @@ public class FileUtils {
                     } else {
                         // read the target for the source file and create a symlink at dest
                         // source file metadata will be lost
-                        error = createSymlinkFile(label + "dest", readlink(srcFilePath), destFilePath);
+                        //error = createSymlinkFile(label + "dest", readlink(srcFilePath), destFilePath);
                         if (error != null)
                             return error;
                     }
