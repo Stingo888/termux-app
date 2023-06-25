@@ -15,4 +15,9 @@ jobs:
 
       - name: Show workspace
         run: |
-         ls ${{env.RUNNER_WORKSPACE}}
+         cd ${{env.RUNNER_WORKSPACE}}
+         pwd
+         ls
+         cd ${{env.GITHUB_WORKSPACE}}
+         pwd
+         ls
