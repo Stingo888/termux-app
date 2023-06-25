@@ -5,7 +5,8 @@
 #include "readlink.h"
 #include "file-utils.h"
 
-JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink  (JNIEnv *env, jclass, jstring javaPath) {
+JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
+  (JNIEnv *env, jclass, jstring javaPath) {
 
     ScopedUtfChars path(env, javaPath);
     if (path.c_str() == NULL) { return NULL; }
@@ -16,7 +17,8 @@ JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink  (JNIEn
     return env->NewStringUTF(result.c_str());
 }
 
-JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink  (JNIEnv *env, jclass, jstring javaOldPath, jstring javaNewPath) {
+JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
+  (JNIEnv *env, jclass, jstring javaOldPath, jstring javaNewPath) {
 
     ScopedUtfChars oldPath(env, javaOldPath);
     if (oldPath.c_str() == NULL) { return; }
