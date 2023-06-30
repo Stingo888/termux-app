@@ -31,5 +31,5 @@ JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
 }
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-    return JNI_VERSION_1_1
+    return JNI_VERSION_1_1;
 }
