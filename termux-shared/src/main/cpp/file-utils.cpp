@@ -4,7 +4,7 @@
 #include "scoped_utf_chars.h"
 #include "readlink.h"
 #include "file-utils.h"
-#define JNI_VERSION_1_8 0x00010008
+#define JNI_VERSION_1_1 0x00010001
 
 JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
   (JNIEnv *env, jclass, jstring javaPath) {
@@ -31,5 +31,5 @@ JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
 }
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-    return JNI_VERSION_1_8;
+    return JNI_VERSION_1_1
 }
