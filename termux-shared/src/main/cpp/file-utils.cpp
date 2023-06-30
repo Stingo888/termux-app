@@ -4,6 +4,7 @@
 #include "scoped_utf_chars.h"
 #include "readlink.h"
 #include "file-utils.h"
+#define JNI_VERSION_10  0x000a0000
 
 JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
   (JNIEnv *env, jclass, jstring javaPath) {
