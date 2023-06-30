@@ -29,6 +29,6 @@ JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
     symlink(oldPath.c_str(), newPath.c_str());
 }
 
-/*jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     return JNI_VERSION_10;
-}*/
+}
