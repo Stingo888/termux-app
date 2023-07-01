@@ -2,10 +2,11 @@
 #include <unistd.h>
 #include <string>
 #include "scoped_utf_chars.h"
-#include "readlink.h"
+//#include "readlink.h"
 #include "file-utils.h"
 #define JNI_VERSION_1_6 0x00010006
 
+extern "C"
 JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
   (JNIEnv *env, jclass, jstring javaPath) {
 
@@ -18,6 +19,7 @@ JNIEXPORT jstring JNICALL Java_com_termux_shared_file_FileUtils_readlink
     return env->NewStringUTF(result.c_str());
 }
 
+extern "C"
 JNIEXPORT void JNICALL Java_com_termux_shared_file_FileUtils_symlink
   (JNIEnv *env, jclass, jstring javaOldPath, jstring javaNewPath) {
 
