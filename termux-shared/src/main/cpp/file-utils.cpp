@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <string>
 #include "scoped_utf_chars.h"
-//#include "readlink.h"
-#include "file-utils.h"
+#include "readlink.h"
+//#include "file-utils.h"
 #define JNI_VERSION_1_6 0x00010006
 
 extern "C"
