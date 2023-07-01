@@ -176,12 +176,12 @@
             android:exported="true"
             android:grantUriPermissions="true"
             android:permission="${TERMUX_PACKAGE_NAME}.permission.RUN_COMMAND" />
-        -->
 
 
         <receiver
             android:name=".app.TermuxOpenReceiver"
             android:exported="false" />
+        -->
 
         <receiver
             android:name=".app.event.SystemEventReceiver"
