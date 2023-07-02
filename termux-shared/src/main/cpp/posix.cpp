@@ -2,10 +2,10 @@
 #include <unistd.h>
 #include <string>
 #include <sys/stat.h>
-#include "readlink.h"
 #include "include/scoped_utf_chars.h"
-#include "include/scoped_utf_chars.h"
+#include "include/scoped_local_ref.h"
 #include "include/jni_constants.h"
+#include "include/readlink.h"
 
 #include <netdb.h>
 #include <netinet/in.h>
