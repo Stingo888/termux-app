@@ -1,9 +1,21 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string>
-#include "scoped_utf_chars.h"
+#include <sys/stat.h>
 #include "readlink.h"
-//#include "file-utils.h"
+#include "include/scoped_utf_chars.h"
+#include "include/scoped_utf_chars.h"
+#include "include/jni_constants.h"
+
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <unistd.h>
+#include <net/if.h>
+
 #define JNI_VERSION_1_6 0x00010006
 
 extern "C"
