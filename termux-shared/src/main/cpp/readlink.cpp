@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include "LocalArray.h"
-#include "readlink.h"
+#include "include/LocalArray.h"
+#include "include/readlink.h"
 
 #include <string>
 #include <unistd.h>
