@@ -38,7 +38,7 @@ android {
         multiDexEnabled true
         externalNativeBuild {
             ndkBuild {
-                cppFlags ''
+                cppFlags ''-I$JAVA_HOME/include"
             }
         }
     }
