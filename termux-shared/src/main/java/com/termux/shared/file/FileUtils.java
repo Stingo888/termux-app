@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.google.common.io.RecursiveDeleteOption;
 import com.termux.shared.file.filesystem.FileType;
 import com.termux.shared.file.filesystem.FileTypes;
+import com.termux.shared.file.libcore.Os;
 import com.termux.shared.data.DataUtils;
 import com.termux.shared.logger.Logger;
 import com.termux.shared.errors.Errno;
@@ -51,11 +52,6 @@ public class FileUtils {
     public static final String APP_WORKING_DIRECTORY_PERMISSIONS = "rwx"; // Default: "rwx"
 
     private static final String LOG_TAG = "FileUtils";
-    
-    static { System.loadLibrary("file-utils"); }
-
-    public static native String readlink(String path);
-    public static native void symlink(String oldPath, String newPath);
     
     /**
      * Get canonical path.
@@ -838,7 +834,7 @@ public class FileUtils {
 
             // create a symlink at destFilePath to targetFilePath
             Logger.logVerbose(LOG_TAG, "Creating " + label + "symlink file at path \"" + destFilePath + "\" to \"" + targetFilePath + "\"");
-            symlink(targetFilePath, destFilePath);
+            Os.symlink(targetFilePath, destFilePath);
         } catch (Exception e) {
             return FileUtilsErrno.ERRNO_CREATING_SYMLINK_FILE_FAILED_WITH_EXCEPTION.getError(e, label + "symlink file", destFilePath, targetFilePath, e.getMessage());
         }
@@ -1158,7 +1154,7 @@ public class FileUtils {
                     } else {
                         // read the target for the source file and create a symlink at dest
                         // source file metadata will be lost
-                        error = createSymlinkFile(label + "dest", readlink(srcFilePath), destFilePath);
+                        error = createSymlinkFile(label + "dest", Os.readlink(srcFilePath), destFilePath);
                         if (error != null)
                             return error;
                     }
