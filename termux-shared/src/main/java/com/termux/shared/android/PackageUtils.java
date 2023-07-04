@@ -593,13 +593,13 @@ public class PackageUtils {
      * @param context The {@link Context} for the package.
      * @return Returns the serial number. This will be {@code null} if failed to get it.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    /*@RequiresApi(api = Build.VERSION_CODES.N)
     @Nullable
     public static Long getUserIdForPackage(@NonNull Context context) {
         UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         if (userManager == null) return null;
         return userManager.getSerialNumberForUser(UserHandle.getUserHandleForUid(getUidForPackage(context)));
-    }
+    }*/
 
     /**
      * Check if the current user is the primary user. This is done by checking if the the serial
@@ -608,11 +608,11 @@ public class PackageUtils {
      * @param context The {@link Context} for operations.
      * @return Returns {@code true} if the current user is the primary user, otherwise [@code false}.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    /*@RequiresApi(api = Build.VERSION_CODES.N)
     public static boolean isCurrentUserThePrimaryUser(@NonNull Context context) {
         Long userId = getUserIdForPackage(context);
         return userId != null && userId == 0;
-    }
+    }*/
 
     /**
      * Get the profile owner package name for the current user.
@@ -621,7 +621,7 @@ public class PackageUtils {
      * @return Returns the profile owner package name. This will be {@code null} if failed to get it
      * or no profile owner for the current user.
      */
-    @Nullable
+    /*@Nullable
     public static String getProfileOwnerPackageNameForUser(@NonNull Context context) {
         DevicePolicyManager devicePolicyManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         if (devicePolicyManager == null) return null;
@@ -634,7 +634,7 @@ public class PackageUtils {
             }
         }
         return null;
-    }
+    }*/
 
 
 
