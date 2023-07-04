@@ -1,7 +1,8 @@
 package com.termux.shared.file.filesystem;
 
 import android.system.ErrnoException;
-import android.system.Os;
+// import android.system.Os;
+import com.termux.shared.file.libcore.Os;
 
 import java.io.File;
 import java.io.FileDescriptor;
