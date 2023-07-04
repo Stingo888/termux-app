@@ -38,7 +38,7 @@ android {
         multiDexEnabled true
         externalNativeBuild {
             ndkBuild {
-                cppFlags "-I$/usr/lib/jvm/temurin-11-jdk-amd64/include"
+                cppFlags "-I/usr/lib/jvm/temurin-11-jdk-amd64/include"
             }
         }
     }
