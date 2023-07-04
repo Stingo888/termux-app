@@ -18,6 +18,9 @@ jobs:
           echo $JAVA_HOME
           cat $JAVA_HOME/include/jni.h | grep -i -n jni_version
 
+      - name: Show c++ standard
+        run: |
+          g++ -dM -E -x c++  /dev/null | grep -F __cplusplus
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
         with:
