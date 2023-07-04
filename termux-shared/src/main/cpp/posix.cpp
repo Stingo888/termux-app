@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <net/if.h>
 
-#define JNI_VERSION_1_6 0x00010006
 #undef TEMP_FAILURE_RETRY
 #define TEMP_FAILURE_RETRY(exp) ({         \
     __typeof__(exp) _rc;                   \
@@ -151,6 +150,14 @@ JNIEXPORT jobject JNICALL Java_com_termux_shared_file_libcore_Os_fstat
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     return JNI_VERSION_1_6;
+}
+
+extern "C"
+JNIEXPORT void JNICALL Java_com_termux_shared_file_libcore_Os_chmod
+  (JNIEnv *env, jclass, jstring javaPath, jint mode) {
+    ScopedUtfChars path(env, javaPath);
+    if (path.c_str() == NULL) { return; }
+    throwIfMinusOne(env, "chmod", TEMP_FAILURE_RETRY(chmod(path.c_str(), mode)));
 }
 
 extern "C"
