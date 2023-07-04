@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <net/if.h>
 
+#define JNI_VERSION_1_6 0x00010006
 #undef TEMP_FAILURE_RETRY
 #define TEMP_FAILURE_RETRY(exp) ({         \
     __typeof__(exp) _rc;                   \
