@@ -15,12 +15,16 @@ import java.util.HashSet;
  */
 public class IntentCmd {
     /** @hide */
-    public interface CommandOptionHandler {
+    /*public interface CommandOptionHandler {
         boolean handleOption(String opt, ShellCommand cmd);
+    }*/
+
+    public boolean handleOption(String opt, ShellCommand cmd) {
+        
     }
 
     /** @hide */
-    public static Intent parseCommandArgs(ShellCommand cmd, CommandOptionHandler optionHandler)
+    public static Intent parseCommandArgs(ShellCommand cmd)
             throws URISyntaxException {
         Intent intent = new Intent();
         Intent baseIntent = intent;
@@ -333,7 +337,7 @@ public class IntentCmd {
                     intent = new Intent();
                     break;
                 default:
-                    if (optionHandler != null && optionHandler.handleOption(opt, cmd)) {
+                    if (handleOption(opt, cmd)) {
                         // Okay, caller handled this option.
                     } else {
                         throw new IllegalArgumentException("Unknown option: " + opt);
