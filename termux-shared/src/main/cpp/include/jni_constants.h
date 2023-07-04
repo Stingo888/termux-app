@@ -16,7 +16,7 @@
 
 // #define LOG_TAG "JniConstants"
 
-#include <jni.h>
+#include "jni.h"
 #include <atomic>
 #include <mutex>
 #include <stdlib.h>

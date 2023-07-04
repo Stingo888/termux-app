@@ -19,7 +19,7 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <jni.h>
+#include "jni.h"
 
 #include "nativehelper_utils.h"
 
