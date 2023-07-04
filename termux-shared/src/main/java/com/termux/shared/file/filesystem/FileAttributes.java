@@ -26,7 +26,8 @@
 package com.termux.shared.file.filesystem;
 
 import android.os.Build;
-import android.system.StructStat;
+// import android.system.StructStat;
+import com.termux.shared.file.libcore.StructStat;
 
 import androidx.annotation.NonNull;
 
