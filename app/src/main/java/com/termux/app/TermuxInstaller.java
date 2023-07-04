@@ -74,7 +74,7 @@ final class TermuxInstaller {
 
         // Termux can only be run as the primary user (device owner) since only that
         // account has the expected file system paths. Verify that:
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !PackageUtils.isCurrentUserThePrimaryUser(activity)) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !PackageUtils.isCurrentUserThePrimaryUser(activity)) {
             bootstrapErrorMessage = activity.getString(R.string.bootstrap_error_not_primary_user_message,
                 MarkdownUtils.getMarkdownCodeForString(TERMUX_PREFIX_DIR_PATH, false));
             Logger.logError(LOG_TAG, "isFilesDirectoryAccessible: " + isFilesDirectoryAccessible);
@@ -84,7 +84,7 @@ final class TermuxInstaller {
                 activity.getString(R.string.bootstrap_error_title),
                 bootstrapErrorMessage);
             return;
-        }
+        }*/
 
         if (!isFilesDirectoryAccessible) {
             bootstrapErrorMessage = Error.getMinimalErrorString(filesDirectoryAccessibleError);
