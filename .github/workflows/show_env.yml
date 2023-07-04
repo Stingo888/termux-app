@@ -15,6 +15,7 @@ jobs:
         
       - name: Show jni versions
         run: |
+          echo $JAVA_HOME
           cat $JAVA_HOME/include/jni.h | grep -i -n jni_version
 
       - name: Attach workspace file
