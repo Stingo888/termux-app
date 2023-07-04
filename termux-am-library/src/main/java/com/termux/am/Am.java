@@ -136,29 +136,7 @@ public class Am extends BaseCommand {
     private Intent makeIntent() throws URISyntaxException {
         mRepeat = 0;
         
-        return IntentCmd.parseCommandArgs(mArgs, (opt, cmd) -> {
-            switch (opt) {
-                case "-W":
-                case "-P":
-                case "--stack":
-                case "--sampling":
-                case "--start-profiler":
-                case "-S":
-                    break;
-                case "-R":
-                    mRepeat = Integer.parseInt(nextArgRequired());
-                    break;
-                case "--user":
-                    nextArgRequired();
-                    break;
-                case "--receiver-permission":
-                    mReceiverPermission = nextArgRequired();
-                    break;
-                default:
-                    return false;
-            }
-            return true;
-        });
+        return IntentCmd.parseCommandArgs(mArgs);
     }
     
     private void runStartService() throws Exception {
