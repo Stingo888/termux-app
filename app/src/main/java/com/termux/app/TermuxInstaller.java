@@ -6,12 +6,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
-import android.system.Os;
+// import android.system.Os;
 import android.util.Pair;
 import android.view.WindowManager;
 
 import com.termux.R;
 import com.termux.shared.file.FileUtils;
+import com.termux.shared.file.libcore.Os;
 import com.termux.shared.termux.crash.TermuxCrashUtils;
 import com.termux.shared.termux.file.TermuxFileUtils;
 import com.termux.shared.interact.MessageDialogUtils;
