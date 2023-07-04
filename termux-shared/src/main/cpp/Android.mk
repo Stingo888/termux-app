@@ -12,8 +12,8 @@ LOCAL_SRC_FILES := readlink.cpp
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := file-utils
-LOCAL_SRC_FILES := file-utils.cpp
+LOCAL_MODULE := posix
+LOCAL_SRC_FILES := posix.cpp
 LOCAL_STATIC_LIBRARIES := libreadlink
 include $(BUILD_SHARED_LIBRARY)
 
