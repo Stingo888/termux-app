@@ -19,30 +19,6 @@ public class IntentCmd {
         boolean handleOption(String opt, ShellCommand cmd);
     }*/
 
-    public boolean handleOption(String opt, ShellCommand cmd) {
-        switch (opt) {
-                case "-W":
-                case "-P":
-                case "--stack":
-                case "--sampling":
-                case "--start-profiler":
-                case "-S":
-                    break;
-                case "-R":
-                    mRepeat = Integer.parseInt(nextArgRequired());
-                    break;
-                case "--user":
-                    nextArgRequired();
-                    break;
-                case "--receiver-permission":
-                    mReceiverPermission = nextArgRequired();
-                    break;
-                default:
-                    return false;
-            }
-            return true;
-    }
-
     /** @hide */
     public static Intent parseCommandArgs(ShellCommand cmd)
             throws URISyntaxException {
@@ -357,7 +333,7 @@ public class IntentCmd {
                     intent = new Intent();
                     break;
                 default:
-                    if (handleOption(opt, cmd)) {
+                    if (Am.handleOption(opt, cmd)) {
                         // Okay, caller handled this option.
                     } else {
                         throw new IllegalArgumentException("Unknown option: " + opt);
