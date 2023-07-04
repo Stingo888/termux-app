@@ -3,6 +3,8 @@ package com.termux.app;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDexApplication;
+
 import com.termux.BuildConfig;
 import com.termux.shared.errors.Error;
 import com.termux.shared.logger.Logger;
@@ -17,7 +19,7 @@ import com.termux.shared.termux.shell.am.TermuxAmSocketServer;
 import com.termux.shared.termux.shell.TermuxShellManager;
 import com.termux.shared.termux.theme.TermuxThemeUtils;
 
-public class TermuxApplication extends Application {
+public class TermuxApplication extends MultiDexApplication {
 
     private static final String LOG_TAG = "TermuxApplication";
 
