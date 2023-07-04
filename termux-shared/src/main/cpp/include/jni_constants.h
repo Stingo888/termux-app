@@ -16,7 +16,7 @@
 
 // #define LOG_TAG "JniConstants"
 
-#include "jni.h"
+#include <jni.h>
 #include <atomic>
 #include <mutex>
 #include <stdlib.h>
@@ -145,7 +145,7 @@ JCLASS_CONSTANTS_LIST(DECLARE_JCLASS_CONSTANT)
 // initialized. This pattern is only necessary because if a process finishes one
 // runtime and starts another then JNI_OnLoad may not be called.
 void EnsureJniConstantsInitialized(JNIEnv* env) {
-    std::lock_guard guard(g_constants_mutex);
+    std::lock_guard<std::mutex> guard(g_constants_mutex);
     if (g_constants_valid) {
         return;
     }
@@ -179,7 +179,7 @@ void JniConstants::Invalidate() {
     // Clean shutdown would require calling DeleteGlobalRef() for each of the
     // class references, but JavaVM is unavailable because ART only calls this
     // once all threads are unregistered.
-    std::lock_guard guard(g_constants_mutex);
+    std::lock_guard<std::mutex> guard(g_constants_mutex);
     g_constants_valid = false;
 }
 

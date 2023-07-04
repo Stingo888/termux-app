@@ -18,7 +18,7 @@
 
 #include <cstddef>
 
-#include "jni.h"
+#include <jni.h>
 
 #include "nativehelper_utils.h"
 

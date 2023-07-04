@@ -16,7 +16,7 @@
 
 #pragma once
 
-#include "jni.h"
+#include <jni.h>
 
 #if defined(__cplusplus)
 
