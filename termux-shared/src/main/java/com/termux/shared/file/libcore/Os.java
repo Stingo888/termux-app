@@ -8,6 +8,7 @@ public class Os {
     public static native StructStat stat(String path) throws ErrnoException;
     public static native StructStat lstat(String path) throws ErrnoException;
     public static native StructStat fstat(FileDescriptor fd) throws ErrnoException;
+    public static native void chmod(String path, int mode) throws ErrnoException;
 
     static { System.loadLibrary("posix"); }
 }
