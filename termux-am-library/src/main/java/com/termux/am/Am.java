@@ -35,6 +35,10 @@ import java.security.InvalidParameterException;
 
 public class Am extends BaseCommand {
     
+    public interface CommandOptionHandler {
+        boolean handleOption(String opt, ShellCommand cmd);
+    }
+    
     private int mRepeat = 0;
     private String mReceiverPermission;
     
