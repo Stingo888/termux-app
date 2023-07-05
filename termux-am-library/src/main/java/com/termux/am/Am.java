@@ -132,9 +132,12 @@ public class Am extends BaseCommand {
                 break;
         }
     }
-
-    public boolean handleOption(String opt, ShellCommand cmd) {
-        switch (opt) {
+    
+    private Intent makeIntent() throws URISyntaxException {
+        mRepeat = 0;
+        
+        return IntentCmd.parseCommandArgs(mArgs, (opt, cmd) -> {
+            switch (opt) {
                 case "-W":
                 case "-P":
                 case "--stack":
@@ -155,12 +158,7 @@ public class Am extends BaseCommand {
                     return false;
             }
             return true;
-    }
-    
-    private Intent makeIntent() throws URISyntaxException {
-        mRepeat = 0;
-        
-        return IntentCmd.parseCommandArgs(mArgs);
+        });
     }
     
     private void runStartService() throws Exception {
