@@ -35,10 +35,6 @@ import java.security.InvalidParameterException;
 
 public class Am extends BaseCommand {
     
-    public interface CommandOptionHandler {
-        boolean handleOption(String opt, ShellCommand cmd);
-    }
-    
     private int mRepeat = 0;
     private String mReceiverPermission;
     
@@ -140,7 +136,7 @@ public class Am extends BaseCommand {
     private Intent makeIntent() throws URISyntaxException {
         mRepeat = 0;
         
-        return IntentCmd.parseCommandArgs(mArgs, new CommandOptionHandler() {
+        return IntentCmd.parseCommandArgs(mArgs, new IntentCmd$CommandOptionHandler() {
             public boolean handleOption(String opt, ShellCommand cmd) {
                 switch (opt) {
                     case "-W":
