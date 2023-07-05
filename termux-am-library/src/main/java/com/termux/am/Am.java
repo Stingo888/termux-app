@@ -136,7 +136,7 @@ public class Am extends BaseCommand {
     private Intent makeIntent() throws URISyntaxException {
         mRepeat = 0;
         
-        return IntentCmd.parseCommandArgs(mArgs, new IntentCmd$CommandOptionHandler() {
+        return IntentCmd.parseCommandArgs(mArgs, new IntentCmd.CommandOptionHandler() {
             public boolean handleOption(String opt, ShellCommand cmd) {
                 switch (opt) {
                     case "-W":
