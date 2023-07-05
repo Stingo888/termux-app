@@ -164,17 +164,12 @@ extern "C"
 JNIEXPORT jstring JNICALL Java_com_termux_shared_file_libcore_ErrnoException_strerror
   (JNIEnv *env, jclass, jint errnum) {
     char buffer[BUFSIZ];
-#ifdef ANDROID_HOST_MUSL
     /* musl only provides the posix version of strerror_r that returns int */
     int ret = strerror_r(errnum, buffer, sizeof(buffer));
     if (ret != 0) {
       return env->NewStringUTF(android::base::StringPrintf("Unknown error %d", errnum).c_str());
     }
     return env->NewStringUTF(buffer);
-#else
-    const char* message = strerror_r(errnum, buffer, sizeof(buffer));
-    return env->NewStringUTF(message);
-#endif
 }
 
 extern "C"
