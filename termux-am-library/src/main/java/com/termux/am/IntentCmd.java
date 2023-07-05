@@ -15,7 +15,7 @@ import java.util.HashSet;
  */
 public class IntentCmd {
     /** @hide */
-    public static class CommandOptionHandler {
+    public interface CommandOptionHandler {
         boolean handleOption(String opt, ShellCommand cmd);
     }
 
