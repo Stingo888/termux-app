@@ -189,6 +189,7 @@ int jniGetFDFromFileDescriptor(JNIEnv* env, jobject fileDescriptor) {
     return env->GetIntField(fileDescriptor, fid);
 }
 
+/*
 const char* jniStrError(int errnum, char* buf, size_t buflen) {
     // Note: glibc has a nonstandard strerror_r that returns char* rather than POSIX's int.
     // char *strerror_r(int errnum, char *buf, size_t n);
@@ -209,3 +210,4 @@ const char* jniStrError(int errnum, char* buf, size_t buflen) {
         return ret;
     }
 }
+*/
