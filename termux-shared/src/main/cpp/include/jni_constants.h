@@ -192,7 +192,7 @@ int jniGetFDFromFileDescriptor(JNIEnv* env, jobject fileDescriptor) {
 const char* jniStrError(int errnum, char* buf, size_t buflen) {
     // Note: glibc has a nonstandard strerror_r that returns char* rather than POSIX's int.
     // char *strerror_r(int errnum, char *buf, size_t n);
-    char* ret = (char*) strerror_r(errnum, buf, buflen);
+    char* ret = strerror_r(errnum, buf, buflen);
     if (atoi(ret) == 0) {
         // POSIX strerror_r, success
         return buf;
