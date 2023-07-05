@@ -167,7 +167,7 @@ JNIEXPORT jstring JNICALL Java_com_termux_shared_file_libcore_ErrnoException_str
     /* musl only provides the posix version of strerror_r that returns int */
     int ret = strerror_r(errnum, buffer, sizeof(buffer));
     if (ret != 0) {
-        const char* unknown = "Unknown errnum !"
+        const char* unknown = "Unknown errnum !";
       return env->NewStringUTF(unknown);
     }
     return env->NewStringUTF(buffer);
