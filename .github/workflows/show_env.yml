@@ -21,10 +21,6 @@ jobs:
       - name: Show c++ standard
         run: |
           g++ -dM -E -x c++  /dev/null | grep -F __cplusplus
-          
-      - name: Show cutils
-        run: |
-          ls $PREFIX/include/libcutils
 
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
