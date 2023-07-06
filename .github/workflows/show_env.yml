@@ -24,7 +24,7 @@ jobs:
           
       - name: Show cutils
         run: |
-          ls $PREFIX/include/cutils
+          ls $PREFIX/include/libcutils
 
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
