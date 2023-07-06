@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import com.google.common.base.Joiner;
 import com.termux.shared.R;
 import com.termux.shared.data.DataUtils;
-package com.termux.shared.file.libcore.PosixBuild;
+import com.termux.shared.file.libcore.PosixBuild;
 import com.termux.shared.logger.Logger;
 import com.termux.shared.markdown.MarkdownUtils;
 
