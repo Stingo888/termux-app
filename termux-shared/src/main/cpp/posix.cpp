@@ -5,6 +5,7 @@
 #include "include/scoped_utf_chars.h"
 #include "include/jni_constants.h"
 #include "include/readlink.h"
+#include "include/properties.h"
 
 #include <netdb.h>
 #include <netinet/in.h>
@@ -148,16 +149,40 @@ JNIEXPORT jobject JNICALL Java_com_termux_shared_file_libcore_Os_fstat
     return makeStructStat(env, sb);
 }
 
-jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-    return JNI_VERSION_1_6;
-}
-
 extern "C"
 JNIEXPORT void JNICALL Java_com_termux_shared_file_libcore_Os_chmod
   (JNIEnv *env, jclass, jstring javaPath, jint mode) {
     ScopedUtfChars path(env, javaPath);
     if (path.c_str() == NULL) { return; }
     throwIfMinusOne(env, "chmod", TEMP_FAILURE_RETRY(chmod(path.c_str(), mode)));
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL Java_com_termux_shared_file_libcore_PosixBuild_nativeGet
+  (JNIEnv *env, jclass, jstring keyJ, jstring defJ) {
+    int len;
+    char buf[PROP_VALUE_MAX];
+    jstring rvJ = NULL;
+
+    if (keyJ == NULL) {
+        jniThrowNullPointerException(env);
+        return NULL;
+    }
+
+    ScopedUtfChars key(env, keyJ);
+    len = property_get(key.c_str(), buf, "");
+    if ((len <= 0) && (defJ != NULL)) {
+        rvJ = defJ;
+    } else if (len >= 0) {
+        rvJ = env->NewStringUTF(buf);
+    } else {
+        rvJ = env->NewStringUTF("");
+    }
+    return rvJ;
+}
+
+jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    return JNI_VERSION_1_6;
 }
 
 extern "C"
