@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import com.google.common.base.Joiner;
 import com.termux.shared.R;
 import com.termux.shared.data.DataUtils;
+package com.termux.shared.file.libcore.PosixBuild;
 import com.termux.shared.logger.Logger;
 import com.termux.shared.markdown.MarkdownUtils;
 
@@ -158,7 +159,8 @@ public class AndroidUtils {
         appendPropertyToMarkdown(markdownString, "BOARD", Build.BOARD);
         appendPropertyToMarkdown(markdownString, "HARDWARE", Build.HARDWARE);
         appendPropertyToMarkdown(markdownString, "DEVICE", Build.DEVICE);
-        appendPropertyToMarkdown(markdownString, "SUPPORTED_ABIS", Joiner.on(", ").skipNulls().join(Build.SUPPORTED_ABIS));
+        // appendPropertyToMarkdown(markdownString, "SUPPORTED_ABIS", Joiner.on(", ").skipNulls().join(Build.SUPPORTED_ABIS));
+        appendPropertyToMarkdown(markdownString, "CPU_ABI", PosixBuild.CPU_ABI);
 
         markdownString.append("\n##\n");
 
