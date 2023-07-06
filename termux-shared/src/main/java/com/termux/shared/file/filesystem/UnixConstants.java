@@ -33,7 +33,8 @@ package com.termux.shared.file.filesystem;
 // AT_SYMLINK_NOFOLLOW (used by fstatat) and AT_REMOVEDIR (used by unlinkat) as of July 2018 do not
 // have equivalents in android.system.OsConstants so left unchanged.
 import android.os.Build;
-import android.system.OsConstants;
+// import android.system.OsConstants;
+import com.termux.shared.file.libcore.OsConstants;
 
 import androidx.annotation.RequiresApi;
 
