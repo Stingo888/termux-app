@@ -56,8 +56,8 @@ jobs:
           export TERMUX_APK_VERSION_TAG="$APK_VERSION_TAG" # Used by app/build.gradle
           export TERMUX_PACKAGE_VARIANT="${{ env.PACKAGE_VARIANT }}" # Used by app/build.gradle
           if ! ./gradlew assembleDebug; then
-            find / -name "libicuuc.so" 2>/dev/null
-            ls /usr/local/lib/android/sdk
+            
+            ls /usr/local/lib/android/sdk/ndk/23.1.7779620/build/core
             exit_on_error "Build failed for '$APK_VERSION_TAG' build."
           fi
 
