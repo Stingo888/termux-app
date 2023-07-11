@@ -56,8 +56,9 @@ jobs:
           export TERMUX_APK_VERSION_TAG="$APK_VERSION_TAG" # Used by app/build.gradle
           export TERMUX_PACKAGE_VARIANT="${{ env.PACKAGE_VARIANT }}" # Used by app/build.gradle
           if ! ./gradlew assembleDebug; then
-            exit_on_error "Build failed for '$APK_VERSION_TAG' build."
             ls /usr/local/lib/android/sdk/ndk
+            exit_on_error "Build failed for '$APK_VERSION_TAG' build."
+
           fi
 
           echo "Validating APKs"
