@@ -19,7 +19,6 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_LDLIBS := -licuuc
-LOCAL_CFLAGS += -I/usr/include
 LOCAL_MODULE := nativeconverter
 LOCAL_SRC_FILES := nativeconverter.cpp
 include $(BUILD_SHARED_LIBRARY)
