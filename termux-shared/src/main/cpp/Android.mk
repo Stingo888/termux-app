@@ -17,3 +17,8 @@ LOCAL_SRC_FILES := posix.cpp
 LOCAL_STATIC_LIBRARIES := libreadlink
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+LOCAL_LDLIBS := -licuuc
+LOCAL_MODULE := nativeconverter
+LOCAL_SRC_FILES := nativeconverter.cpp
+include $(BUILD_SHARED_LIBRARY)
