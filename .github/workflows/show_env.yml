@@ -23,12 +23,11 @@ jobs:
           g++ -dM -E -x c++  /dev/null | grep -F __cplusplus
 
       - name: Show ucnv
-        run: |
-          ls /
-          #cd $PREFIX/include
-          #ls
-          #cd unicode
-          #ls
+        run:  |
+          cd usr/local/include
+          ls
+          cd unicode
+          ls
 
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
