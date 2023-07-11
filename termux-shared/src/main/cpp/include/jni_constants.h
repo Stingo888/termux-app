@@ -40,6 +40,7 @@ struct JniConstants {
 
     static jclass GetBooleanClass(JNIEnv* env);
     static jclass GetByteBufferClass(JNIEnv* env);
+    static jclass GetCharsetICUClass(JNIEnv* env);
     static jclass GetDoubleClass(JNIEnv* env);
     static jclass GetErrnoExceptionClass(JNIEnv* env);
     static jclass GetFileDescriptorClass(JNIEnv* env);
@@ -98,9 +99,11 @@ static bool g_constants_valid = false;
 
 // Mapping between C++ names and java class descriptors.
 #define JCLASS_CONSTANTS_LIST(V)                                                            \
-    V(StructStatClass, "com/termux/shared/file/libcore/StructStat") \
     V(FileDescriptorClass, "java/io/FileDescriptor") \
-    V(ErrnoExceptionClass, "com/termux/shared/file/libcore/ErrnoException")
+    V(StringClass, "java/lang/String") \
+    V(StructStatClass, "com/termux/shared/file/libcore/StructStat") \
+    V(ErrnoExceptionClass, "com/termux/shared/file/libcore/ErrnoException") \
+    V(CharsetICUClass, "com/termux/shared/nio/charset/CharsetICU")
     /*V(BooleanClass, "java/lang/Boolean")                                                    \
     V(ByteBufferClass, "java/nio/ByteBuffer")                                               \
     V(DoubleClass, "java/lang/Double")                                                      \
@@ -183,13 +186,14 @@ void JniConstants::Invalidate() {
     g_constants_valid = false;
 }
 
+// From jni_help.h below ↓↓↓
+
 int jniGetFDFromFileDescriptor(JNIEnv* env, jobject fileDescriptor) {
     JniConstants::Initialize(env);
     static jfieldID fid = env->GetFieldID(JniConstants::GetFileDescriptorClass(env), "fd", "I");
     return env->GetIntField(fileDescriptor, fid);
 }
 
-/*
 const char* jniStrError(int errnum, char* buf, size_t buflen) {
     // Note: glibc has a nonstandard strerror_r that returns char* rather than POSIX's int.
     // char *strerror_r(int errnum, char *buf, size_t n);
@@ -210,4 +214,3 @@ const char* jniStrError(int errnum, char* buf, size_t buflen) {
         return ret;
     }
 }
-*/
