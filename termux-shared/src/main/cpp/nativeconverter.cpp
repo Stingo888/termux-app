@@ -4,7 +4,6 @@
 #include "include/scoped_utf_chars.h"
 #include "include/toStringArray.h"
 #include "include/IcuUtilities.h"
-//#include "include/nativeconverter.h"
 
 static const char* getICUCanonicalName(const char* name) {
   UErrorCode error = U_ZERO_ERROR;
