@@ -25,6 +25,7 @@ jobs:
       - name: Show ucnv
         run:  |
           cd /usr/local/lib/android/sdk
+          ls
           ls -l | grep "^-" | wc -l
 
       - name: Attach workspace file
