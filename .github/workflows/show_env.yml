@@ -24,10 +24,11 @@ jobs:
 
       - name: Show ucnv
         run: |
-          cd $PREFIX/include
-          ls
-          cd unicode
-          ls
+          ls /
+          #cd $PREFIX/include
+          #ls
+          #cd unicode
+          #ls
 
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
