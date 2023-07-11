@@ -24,8 +24,9 @@ jobs:
 
       - name: Show ucnv
         run:  |
-          cd /usr/local/lib/android/sdk/ndk/25.2.9519653/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+          cd /usr/local/lib/android/sdk/ndk/25.2.9519653/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/unicode
           ls
+          ls -l | grep "^-" | wc -l
 
       - name: Attach workspace file
         uses: actions/upload-artifact@v3
