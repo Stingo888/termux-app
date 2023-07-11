@@ -58,7 +58,6 @@ jobs:
           if ! ./gradlew assembleDebug; then
             ls /usr/local/lib/android/sdk/ndk
             exit_on_error "Build failed for '$APK_VERSION_TAG' build."
-
           fi
 
           echo "Validating APKs"
