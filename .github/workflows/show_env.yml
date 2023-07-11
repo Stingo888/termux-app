@@ -24,7 +24,7 @@ jobs:
 
       - name: Show ucnv
         run:  |
-          cd /usr/include/unicode
+          cd /usr/local/lib/android/sdk/ndk/25.2.9519653
           ls
 
       - name: Attach workspace file
