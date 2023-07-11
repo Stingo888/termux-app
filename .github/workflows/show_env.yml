@@ -24,7 +24,7 @@ jobs:
 
       - name: Show ucnv
         run:  |
-          ls usr/local
+          ls /usr/local
           #cd usr/local/include
           #ls
           #cd unicode
