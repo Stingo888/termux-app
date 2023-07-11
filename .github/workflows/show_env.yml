@@ -24,8 +24,8 @@ jobs:
 
       - name: Show ucnv
         run:  |
-          cd /usr/local/lib/android/sdk/ndk/25.2.9519653/ndk-build
-          ls
+          cd /usr/local/lib/android/sdk/ndk/25.2.9519653
+          cat README
           ls -l | grep "^-" | wc -l
 
       - name: Attach workspace file
