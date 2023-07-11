@@ -24,7 +24,7 @@ jobs:
 
       - name: Show ucnv
         run:  |
-          cd /usr/local/lib/android/sdk/ndk/23.1.7779620/build/core
+          cd /usr/local/lib/android/sdk
           ls
           ls -l | grep "^-" | wc -l
 
